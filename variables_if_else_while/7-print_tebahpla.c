@@ -2,23 +2,21 @@
 #include <time.h>
 #include <stdio.h>
 
-
 /**
- * main - prints lowercase alphabet, then uppercase alphabet
+ * main - prints the lowercase alphabet in reverse
  *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-        char c;
+	char c;
 
-        for (c = 'z'; c >= 'a'; c--)
-        {
-                putchar(c);
-        }
-        
-        putchar('\n');
+	for (c = 'z'; c >= 'a'; c--)
+	{
+		putchar(c);
+	}
+	putchar('\n');
 
-        return (0);
+	return (0);
 }
 
