@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - prints the numbers of base 16 in lowercase
+ * main - prints all possible combinations of single-digit numbers
  *
  * Return: Always 0 (Success)
  */
@@ -11,9 +11,9 @@ int main(void)
 
 	for (n = 0; n <= 9; n++)
 	{
-			putchar(n + '0');
-			
-			if (n != 9)
+		putchar(n + '0');
+
+		if (n != 9)
 		{
 			putchar(',');
 			putchar(' ');
