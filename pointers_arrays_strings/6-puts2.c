@@ -1,4 +1,3 @@
-
 #include "main.h"
 
 /**
@@ -11,18 +10,22 @@
 void puts2(char *str)
 {
 	int i = 0;
-	
+
 	if (!str)
 		return;
 
 	while (str[i] != '\0')
 	{
 		_putchar(str[i]);
+
+		/* move to the next character to print */
 		i += 2;
+
+		/* safety check to avoid reading past null terminator */
+		if (str[i] == '\0')
+			break;
 	}
 
 	_putchar('\n');
 }
-
-
 
