@@ -1,3 +1,4 @@
+
 #include "main.h"
 
 /**
@@ -10,6 +11,9 @@
 void puts2(char *str)
 {
 	int i = 0;
+	
+	if (!str)
+		return;
 
 	while (str[i] != '\0')
 	{
@@ -19,5 +23,6 @@ void puts2(char *str)
 
 	_putchar('\n');
 }
+
 
 
