@@ -1,52 +1,36 @@
 #include "main.h"
-#include <limits.h>
 
 /**
- * _atoi - converts a string to an integer
- * @s: string to convert
- *
- * Return: converted integer, or 0 if no digits found
+ * _atoi - converts a string to an integer.
+ * @s: input string.
+ * Return: integer.
  */
+
 int _atoi(char *s)
 {
-	int i = 0;
-	int sign = 1;
-	int num = 0;
-	int found = 0;
-	int digit;
+	unsigned int count = 0, size = 0, oi = 0, pn = 1, m = 1, i;
 
-	while (s[i] != '\0')
+	while (*(s + count) != '\0')
 	{
-		if (!found && s[i] == '-')
-			sign = -sign;
-		else if (!found && s[i] >= '0' && s[i] <= '9')
-		{
-			found = 1;
-			digit = s[i] - '0';
-
-			if (num < (INT_MIN + digit) / 10)
-				return (sign == 1 ? INT_MAX : INT_MIN);
-
-			num = num * 10 - digit;
-		}
-		else if (found && (s[i] < '0' || s[i] > '9'))
-		{
+		if (size > 0 && (*(s + count) < '0' || *(s + count) > '9'))
 			break;
+
+		if (*(s + count) == '-')
+			pn *= -1;
+
+		if ((*(s + count) >= '0') && (*(s + count) <= '9'))
+		{
+			if (size > 0)
+				m *= 10;
+			size++;
 		}
-
-		i++;
+		count++;
 	}
 
-	if (!found)
-		return (0);
-
-	if (sign == 1)
+	for (i = count - size; i < count; i++)
 	{
-		if (num == INT_MIN)
-			return (INT_MAX);
-		return (-num);
+		oi = oi + ((*(s + i) - 48) * m);
+		m /= 10;
 	}
-
-	return (num);
+	return (oi * pn);
 }
-
