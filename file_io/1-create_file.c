@@ -1,4 +1,6 @@
 #include "main.h"
+#include <fcntl.h>
+#include <unistd.h>
 
 /**
  * create_file - creates a file and writes text into it.
@@ -14,8 +16,7 @@ int create_file(const char *filename, char *text_content)
 	if (filename == NULL)
 		return (-1);
 
-	/* O_CREAT: create file, O_WRONLY: write only, O_TRUNC: empty existing */
-	/* 0600: permissions rw------- */
+	/* Open: Create, Write-Only, Truncate. Permissions: rw------- (0600) */
 	fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
 	if (fd == -1)
 		return (-1);
